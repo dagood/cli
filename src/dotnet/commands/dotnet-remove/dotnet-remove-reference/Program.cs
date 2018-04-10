@@ -50,10 +50,7 @@ namespace Microsoft.DotNet.Tools.Remove.ProjectToProjectReference
                     return p;
                 }
 
-                return Path.GetRelativePath(
-                    msbuildProj.ProjectRootElement.FullPath,
-                    MsbuildProject.GetProjectFileFromDirectory(fullPath).FullName
-                );
+                return null;
             });
 
             int numberOfRemovedReferences = msbuildProj.RemoveProjectToProjectReferences(

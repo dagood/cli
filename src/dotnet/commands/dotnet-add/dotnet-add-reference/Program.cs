@@ -91,9 +91,7 @@ namespace Microsoft.DotNet.Tools.Add.ProjectToProjectReference
             }
 
             var relativePathReferences = refs.Select((r) =>
-                                                        Path.GetRelativePath(
-                                                            msbuildProj.ProjectDirectory,
-                                                            r.ProjectRootElement.FullPath)).ToList();
+                                                        null).ToList();
 
             int numberOfAddedReferences = msbuildProj.AddProjectToProjectReferences(
                 frameworkString,
