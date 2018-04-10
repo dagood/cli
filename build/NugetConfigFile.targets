@@ -1,9 +1,13 @@
 <Project ToolsVersion="15.0">
   <Target Name="WriteNugetConfigFile">
 
-      <ItemGroup>
-        <NugetConfigPrivateFeeds Include="$(ExternalRestoreSources.Split(';'))" />
-      </ItemGroup>
+    <Import Project="$(DotNetRestoreSourcePropsPath)"
+            Condition=" '$(DotNetRestoreSourcePropsPath)' != '' "/>
+
+    <ItemGroup>
+      <NugetConfigPrivateFeeds Include="$(ExternalRestoreSources.Split(';'))" />
+      <NugetConfigPrivateFeeds Include="$(DotNetRestoreSources.Split(';'))" />
+    </ItemGroup>
 
     <PropertyGroup>
       <NugetConfigHeader>
