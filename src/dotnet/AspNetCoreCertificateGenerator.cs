@@ -10,7 +10,9 @@ namespace Microsoft.DotNet.Cli
     {
         public void GenerateAspNetCoreDevelopmentCertificate()
         {
+#if !DOTNET_BUILD_FROM_SOURCE
             CertificateGenerator.GenerateAspNetHttpsCertificate();
+#endif
         }
     }
 }
