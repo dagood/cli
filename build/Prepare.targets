@@ -63,7 +63,8 @@
     <CallTarget Targets="CleanSrcLockFiles" />
 
     <DotNetRestore ToolPath="$(PreviousStageDirectory)"
-                   ProjectPath="&quot;%(RestoreSrcPackagesInput.FullPath)&quot;" />
+                   ProjectPath="&quot;%(RestoreSrcPackagesInput.FullPath)&quot;"
+                   AdditionalParameters="/p:CliTargetFramework=$(CliTargetFramework)" />
 
   </Target>
 
@@ -89,7 +90,7 @@
 
     <DotNetRestore ToolPath="$(PreviousStageDirectory)"
                    ProjectPath="&quot;%(RestoreToolsPackagesInput.FullPath)&quot;"
-                   AdditionalParameters="/p:UsePortableLinuxSharedFramework=$(UsePortableLinuxSharedFramework)" />
+                   AdditionalParameters="/p:UsePortableLinuxSharedFramework=$(UsePortableLinuxSharedFramework) /p:CliTargetFramework=$(CliTargetFramework)" />
 
   </Target>
 
