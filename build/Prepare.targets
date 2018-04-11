@@ -64,7 +64,7 @@
 
     <DotNetRestore ToolPath="$(PreviousStageDirectory)"
                    ProjectPath="&quot;%(RestoreSrcPackagesInput.FullPath)&quot;"
-                   AdditionalParameters="/p:NETCoreAppMaximumVersion=$(NETCoreAppMaximumVersion)" />
+                   AdditionalParameters="/p:NETCoreAppMaximumVersion=$(NETCoreAppMaximumVersion) /p:OrchestratedPackageVersionsProps=$(OrchestratedPackageVersionsProps)" />
 
   </Target>
 
@@ -90,7 +90,7 @@
 
     <DotNetRestore ToolPath="$(PreviousStageDirectory)"
                    ProjectPath="&quot;%(RestoreToolsPackagesInput.FullPath)&quot;"
-                   AdditionalParameters="/p:UsePortableLinuxSharedFramework=$(UsePortableLinuxSharedFramework) /p:NETCoreAppMaximumVersion=$(NETCoreAppMaximumVersion)" />
+                   AdditionalParameters="/p:UsePortableLinuxSharedFramework=$(UsePortableLinuxSharedFramework) /p:NETCoreAppMaximumVersion=$(NETCoreAppMaximumVersion) /p:OrchestratedPackageVersionsProps=$(OrchestratedPackageVersionsProps)" />
 
   </Target>
 
