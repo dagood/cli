@@ -55,7 +55,7 @@
 
   <ItemGroup>
     <_DownloadAndExtractItem Include="AspNetCoreSharedFxArchiveFile"
-                             Condition="!Exists('$(AspNetCoreSharedFxArchiveFile)') And !$(Architecture.StartsWith('arm'))">
+                             Condition="!Exists('$(AspNetCoreSharedFxArchiveFile)') And !$(Architecture.StartsWith('arm')) And '$(IncludeAspNetCoreRuntime)' != 'false'">
       <Url>$(AspNetCoreSharedFxRootUrl)$(AspNetCoreVersion)/$(AspNetCoreSharedFxArchiveFileName)$(CoreSetupBlobAccessTokenParam)</Url>
       <DownloadFileName>$(AspNetCoreSharedFxArchiveFile)</DownloadFileName>
       <ExtractDestination>$(AspNetCoreSharedFxPublishDirectory)</ExtractDestination>
@@ -97,14 +97,14 @@
     </_DownloadAndExtractItem>
 
     <_DownloadAndExtractItem Include="DownloadedAspNetCoreSharedFxInstallerFile"
-                            Condition="'$(SkipBuildingInstallers)' != 'true' AND '$(DownloadedAspNetCoreSharedFxInstallerFile)' != '' AND !Exists($(DownloadedAspNetCoreSharedFxInstallerFile)) And '$(InstallerExtension)' != '' And !$(Architecture.StartsWith('arm'))">
+                            Condition="'$(SkipBuildingInstallers)' != 'true' AND '$(DownloadedAspNetCoreSharedFxInstallerFile)' != '' AND !Exists($(DownloadedAspNetCoreSharedFxInstallerFile)) And '$(InstallerExtension)' != '' And !$(Architecture.StartsWith('arm')) And '$(IncludeAspNetCoreRuntime)' != 'false'">
       <Url>$(AspNetCoreSharedFxRootUrl)$(AspNetCoreVersion)/$(DownloadedAspNetCoreSharedFxInstallerFileName)$(CoreSetupBlobAccessTokenParam)</Url>
       <DownloadFileName>$(DownloadedAspNetCoreSharedFxInstallerFile)</DownloadFileName>
       <ExtractDestination></ExtractDestination>
     </_DownloadAndExtractItem>
 
     <_DownloadAndExtractItem Include="AspNetCoreSharedFxBaseRuntimeVersionFile"
-                           Condition="!Exists('$(AspNetCoreSharedFxBaseRuntimeVersionFile)') And !$(Architecture.StartsWith('arm'))">
+                           Condition="!Exists('$(AspNetCoreSharedFxBaseRuntimeVersionFile)') And !$(Architecture.StartsWith('arm')) And '$(IncludeAspNetCoreRuntime)' != 'false'">
       <Url>$(AspNetCoreSharedFxRootUrl)$(AspNetCoreVersion)/$(AspNetCoreSharedFxBaseRuntimeVersionFileName)$(CoreSetupBlobAccessTokenParam)</Url>
       <DownloadFileName>$(AspNetCoreSharedFxBaseRuntimeVersionFile)</DownloadFileName>
       <ExtractDestination></ExtractDestination>
