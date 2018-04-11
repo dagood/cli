@@ -86,7 +86,7 @@
     <DotNetPublish ToolPath="$(PreviousStageDirectory)"
                    Configuration="$(Configuration)"
                    ProjectPath="$(SrcDirectory)/tool_fsharp/tool_fsc.csproj"
-                   MSBuildArgs="/p:NETCoreAppMaximumVersion=$(NETCoreAppMaximumVersion)" />
+                   MSBuildArgs="/p:NETCoreAppMaximumVersion=$(NETCoreAppMaximumVersion) /p:OrchestratedPackageVersionsProps=$(OrchestratedPackageVersionsProps)" />
   </Target>
 
   <Target Name="GenerateCliRuntimeConfigurationFiles"

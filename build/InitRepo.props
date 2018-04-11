@@ -6,6 +6,7 @@
     <HostInfoProps>$(GeneratedPropsDir)/HostInfo.props</HostInfoProps>
     <BuildInfoProps>$(GeneratedPropsDir)/BuildInfo.props</BuildInfoProps>
     <OrchestratedPackageVersionsProps>$(GeneratedPropsDir)/OrchestratedPackageVersionsProps.props</OrchestratedPackageVersionsProps>
+    <OrchestratedPackageVersionsProps Condition=" '$(DotNetPackageVersionPropsPath)' != '' ">$(DotNetPackageVersionPropsPath)</OrchestratedPackageVersionsProps>
     <GeneratedNuGetConfig>$(RepoRoot)/NuGet.Config</GeneratedNuGetConfig>
   </PropertyGroup>
 </Project>
