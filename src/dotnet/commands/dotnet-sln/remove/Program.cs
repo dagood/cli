@@ -43,7 +43,12 @@ namespace Microsoft.DotNet.Tools.Sln.Remove
             var baseDirectory = PathUtility.EnsureTrailingSlash(slnFile.BaseDirectory);
             var relativeProjectPaths = _appliedCommand.Arguments.Select(p => {
                 var fullPath = Path.GetFullPath(p);
-                return null;
+                return Path.GetRelativePath(
+                    baseDirectory,
+                    Directory.Exists(fullPath) ?
+                        MsbuildProject.GetProjectFileFromDirectory(fullPath).FullName :
+                        fullPath
+                );
             });
 
             bool slnChanged = false;

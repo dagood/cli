@@ -23,7 +23,9 @@ namespace Microsoft.DotNet.Tools.Common
                 throw new ArgumentException();
             }
 
-            string relativeProjectPath = null;
+            var relativeProjectPath = Path.GetRelativePath(
+                PathUtility.EnsureTrailingSlash(slnFile.BaseDirectory),
+                fullProjectPath);
 
             if (slnFile.Projects.Any((p) =>
                     string.Equals(p.FilePath, relativeProjectPath, StringComparison.OrdinalIgnoreCase)))
