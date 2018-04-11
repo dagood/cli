@@ -90,12 +90,16 @@ namespace Microsoft.DotNet.Configurer
 
         private bool ShouldGenerateAspNetCertificate()
         {
+#if DOTNET_BUILD_FROM_SOURCE
+            return false;
+#else
             var generateAspNetCertificate =
                 _environmentProvider.GetEnvironmentVariableAsBool("DOTNET_GENERATE_ASPNET_CERTIFICATE", true);
 
             return ShouldRunFirstRunExperience() &&
                 generateAspNetCertificate &&
                 !_aspNetCertificateSentinel.Exists();
+#endif
         }
 
         private bool ShouldAddPackageExecutablePath()
