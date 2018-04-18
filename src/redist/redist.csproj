@@ -348,7 +348,7 @@
         ReadyToRun="True"
         CreateSymbols="$(CreateCrossgenSymbols)"
         DiasymReaderPath="@(DiasymReaderPath)"
-        PlatformAssemblyPaths="@(PlatformAssemblies);@(RemainingFolders);$(SharedFrameworkNameVersionPath)" />
+        PlatformAssemblyPaths="@(PlatformAssemblies);@(RemainingFolders);@(RoslynFolders);$(SharedFrameworkNameVersionPath)" />
   </Target>
 
   <Target Name="ChmodPublishDir"
