@@ -1,13 +1,9 @@
 <Project ToolsVersion="15.0">
-  <Import Project="$(DotNetRestoreSourcePropsPath)"
-          Condition=" '$(DotNetRestoreSourcePropsPath)' != '' "/>
-
   <Target Name="WriteNugetConfigFile">
 
-    <ItemGroup>
-      <NugetConfigPrivateFeeds Include="$(ExternalRestoreSources.Split(';'))" Condition="'$(DotNetBuildOffline)' != 'true'"/>
-      <NugetConfigPrivateFeeds Include="$(DotNetRestoreSources.Split(';'))" />
-    </ItemGroup>
+      <ItemGroup>
+        <NugetConfigPrivateFeeds Include="$(ExternalRestoreSources.Split(';'))" />
+      </ItemGroup>
 
     <PropertyGroup>
       <NugetConfigHeader>
@@ -45,7 +41,7 @@
                       Lines="$(NugetConfigHeader)"
                       Overwrite="true" />
 
-    <WriteLinesToFile Condition="'@(NugetConfigPrivateFeeds)' != ''"
+    <WriteLinesToFile Condition="'$(ExternalRestoreSources)' != '' and '$(DotNetBuildOffline)' != 'true'"
                       File="$(GeneratedNuGetConfig)"
                       Lines="&lt;add key=&quot;PrivateBlobFeed%(NugetConfigPrivateFeeds.Identity)&quot; value=&quot;%(NugetConfigPrivateFeeds.Identity)&quot; /&gt;"
                       Overwrite="false" />
