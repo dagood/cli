@@ -185,6 +185,9 @@ Copyright (c) .NET Foundation. All rights reserved.
     <LatestPatchVersionForNetCore1_0 Condition="'$(LatestPatchVersionForNetCore1_0)' == ''">1.0.11</LatestPatchVersionForNetCore1_0>
     <LatestPatchVersionForNetCore1_1 Condition="'$(LatestPatchVersionForNetCore1_1)' == ''">1.1.8</LatestPatchVersionForNetCore1_1>
     <LatestPatchVersionForNetCore2_0 Condition="'$(LatestPatchVersionForNetCore2_0)' == ''">2.0.7</LatestPatchVersionForNetCore2_0>
+
+    <!-- If true, always target the latest ASP.NET Core runtime by default -->
+    <TargetLatestAspNetCoreRuntimePatch>$(DefaultTargetLatestAspNetCoreRuntimePatch)</TargetLatestAspNetCoreRuntimePatch>
   </PropertyGroup>
 </Project>
 ]]>
