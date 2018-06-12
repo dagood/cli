@@ -176,7 +176,7 @@ Copyright (c) .NET Foundation. All rights reserved.
     <LatestPatchVersionForNetCore2_0 Condition="'$(LatestPatchVersionForNetCore2_0)' == ''">2.0.7</LatestPatchVersionForNetCore2_0>
 
     <!-- If true, always target the latest ASP.NET Core runtime by default -->
-    <TargetLatestAspNetCoreRuntimePatch>$(DefaultTargetLatestAspNetCoreRuntimePatch)</TargetLatestAspNetCoreRuntimePatch>
+    <TargetLatestAspNetCoreRuntimePatch Condition="'$(TargetLatestAspNetCoreRuntimePatch)' == ''">$(DefaultTargetLatestAspNetCoreRuntimePatch)</TargetLatestAspNetCoreRuntimePatch>
   </PropertyGroup>
 </Project>
 ]]>
